@@ -1,6 +1,6 @@
 ---
 - name: tasks to install and configure apache
-  hosts: "{{ _hosts | default('dev') }}"
+  hosts: "{{ awx_webhook_payload.pull_request.base.ref | default('dev') }}"
   become: true
   tasks:
   - name: Ensure Apache is installed
